@@ -1,0 +1,19 @@
+require:
+  - rubocop-rails
+  
+AllCops:
+  NewCops: enable
+  Exclude:
+    - 'vendor/**/*'
+    - 'tmp/**/*'
+    - 'lib/**/*'
+    - 'script/**/*'
+    - 'storage/**/*'
+    - 'bin/**/*'
+    - 'db/**/*'
+    - 'config.ru'
+  TargetRubyVersion: 3.2
+  SuggestExtensions: false
+
+Style/Documentation:
+  Enabled: false
