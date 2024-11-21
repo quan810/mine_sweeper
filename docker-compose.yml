@@ -1,6 +1,7 @@
 services:
   app:
-    build: .
+    build:
+      dockerfile: Dockerfile.development
     stdin_open: true
     tty: true
     volumes:
@@ -12,7 +13,8 @@ services:
     depends_on:
       - db
   sass:
-    build: .
+    build:
+      dockerfile: Dockerfile.development
     stdin_open: true
     tty: true
     volumes:
