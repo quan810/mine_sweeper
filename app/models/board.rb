@@ -19,4 +19,15 @@ class Board < ApplicationRecord
   validates :name, :email, presence: true
   validates :height, numericality: { greater_than: 0 }
   validates :width, numericality: { greater_than: 0 }
+
+  def arrangement
+    @arrangement ||=
+      begin
+        result = Array.new(height) { Array.new(width, false) }
+        mines.each do |mine|
+          result[mine.y_coor - 1][mine.x_coor - 1] = true
+        end
+        result
+      end
+  end
 end

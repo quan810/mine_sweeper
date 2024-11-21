@@ -35,6 +35,6 @@ class BoardCreateService
         y_coor = (position / @width) + 1
         board.mines.build(x_coor:, y_coor:)
       end
-    Mine.import!(mines)
+    Mine.import!(mines, batch_size: 500)
   end
 end

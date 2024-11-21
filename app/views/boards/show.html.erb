@@ -9,8 +9,19 @@
     <div class="info">
       <div class="email"><%= "By #{@board.email}" %></div>
       <div class="created-at"><%="Created at #{@board.created_at}" %></div>
-      <div class="board">
-      </div>
+    </div>
+    <div class="board">
+      <% @board.arrangement.map do |row| %>
+        <div class="row">
+          <% row.map do |cell_with_mine| %>
+            <div class="tile">
+              <% if cell_with_mine %>
+                <img src="https://svgsilh.com/svg/37077.svg">
+              <% end %>
+            </div>
+          <% end %>
+        </div>
+      <% end %>
     </div>
     <div>
       <%= link_to "Back to boards", boards_path %>

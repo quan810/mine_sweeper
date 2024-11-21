@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.0].define(version: 2024_11_20_162809) do
+ActiveRecord::Schema[8.0].define(version: 2024_11_21_134130) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "pg_catalog.plpgsql"
   enable_extension "pgcrypto"
@@ -30,5 +30,6 @@ ActiveRecord::Schema[8.0].define(version: 2024_11_20_162809) do
     t.uuid "board_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["board_id", "x_coor", "y_coor"], name: "index_mines_on_board_id_and_x_coor_and_y_coor", unique: true
   end
 end

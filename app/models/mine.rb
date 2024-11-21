@@ -11,6 +11,10 @@
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
 #
+# Indexes
+#
+#  index_mines_on_board_id_and_x_coor_and_y_coor  (board_id,x_coor,y_coor) UNIQUE
+#
 
 class Mine < ApplicationRecord
   belongs_to :board

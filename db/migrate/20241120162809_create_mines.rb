@@ -6,7 +6,5 @@ class CreateMines < ActiveRecord::Migration[8.0]
       t.uuid    :board_id
       t.timestamps
     end
-
-    add_index :mines, [:board_id, :x_coor, :y_coor], unique: true
   end
 end

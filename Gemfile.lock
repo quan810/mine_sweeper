@@ -124,6 +124,9 @@ GEM
     google-protobuf (4.28.3-aarch64-linux)
       bigdecimal
       rake (>= 13)
+    google-protobuf (4.28.3-x86_64-linux)
+      bigdecimal
+      rake (>= 13)
     i18n (1.14.6)
       concurrent-ruby (~> 1.0)
     importmap-rails (2.0.3)
@@ -284,6 +287,8 @@ GEM
     ruby-progressbar (1.13.0)
     rubyzip (2.3.2)
     sass-embedded (1.81.0-aarch64-linux-gnu)
+      google-protobuf (~> 4.28)
+    sass-embedded (1.81.0-x86_64-linux-gnu)
       google-protobuf (~> 4.28)
     securerandom (0.3.2)
     selenium-webdriver (4.26.0)

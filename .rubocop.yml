@@ -23,3 +23,5 @@ Rails/I18nLocaleTexts:
   Enabled: false
 Metrics/BlockLength:
   Enabled: false
+Metrics/MethodLength:
+  Enabled: false
