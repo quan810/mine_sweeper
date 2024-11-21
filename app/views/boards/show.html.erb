@@ -1,10 +1,19 @@
+<%= stylesheet_link_tag "board/board" %>
+
+<%= render "navbar" %>
 <p style="color: green"><%= notice %></p>
 
-<%= render @board %>
-
-<div>
-  <%= link_to "Edit this board", edit_board_path(@board) %> |
-  <%= link_to "Back to boards", boards_path %>
-
-  <%= button_to "Destroy this board", @board, method: :delete %>
+<div class="board-show-container">
+  <div class="content">
+    <h1 class="title"><%= @board.name %></h1>
+    <div class="info">
+      <div class="email"><%= "By #{@board.email}" %></div>
+      <div class="created-at"><%="Created at #{@board.created_at}" %></div>
+      <div class="board">
+      </div>
+    </div>
+    <div>
+      <%= link_to "Back to boards", boards_path %>
+    </div>
+  </div>
 </div>

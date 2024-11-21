@@ -25,8 +25,8 @@ ActiveRecord::Schema[8.0].define(version: 2024_11_20_162809) do
   end
 
   create_table "mines", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
-    t.integer "x_comp", null: false
-    t.integer "y_comp", null: false
+    t.integer "x_coor", null: false
+    t.integer "y_coor", null: false
     t.uuid "board_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false

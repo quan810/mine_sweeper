@@ -1,70 +1,49 @@
-class BoardsController < ApplicationController
-  before_action :set_board, only: %i[ show edit update destroy ]
+# frozen_string_literal: true
 
-  # GET /boards or /boards.json
+class BoardsController < ApplicationController
+  before_action :require_authentication
+  before_action :set_board, only: :show
+
   def index
     @boards = Board.all
   end
 
-  # GET /boards/1 or /boards/1.json
-  def show
-  end
+  def show; end
 
-  # GET /boards/new
   def new
     @board = Board.new
   end
 
-  # GET /boards/1/edit
-  def edit
-  end
-
-  # POST /boards or /boards.json
   def create
-    @board = Board.new(board_params)
-
-    respond_to do |format|
-      if @board.save
-        format.html { redirect_to @board, notice: "Board was successfully created." }
-        format.json { render :show, status: :created, location: @board }
-      else
-        format.html { render :new, status: :unprocessable_entity }
-        format.json { render json: @board.errors, status: :unprocessable_entity }
-      end
-    end
-  end
-
-  # PATCH/PUT /boards/1 or /boards/1.json
-  def update
-    respond_to do |format|
-      if @board.update(board_params)
-        format.html { redirect_to @board, notice: "Board was successfully updated." }
-        format.json { render :show, status: :ok, location: @board }
-      else
-        format.html { render :edit, status: :unprocessable_entity }
-        format.json { render json: @board.errors, status: :unprocessable_entity }
-      end
-    end
-  end
-
-  # DELETE /boards/1 or /boards/1.json
-  def destroy
-    @board.destroy!
-
-    respond_to do |format|
-      format.html { redirect_to boards_path, status: :see_other, notice: "Board was successfully destroyed." }
-      format.json { head :no_content }
-    end
+    @board =
+      BoardCreateService
+      .new(
+        email: session[:email],
+        name: board_params[:name],
+        height: board_params[:height],
+        width: board_params[:width],
+        mine_count: board_params[:mine_count]
+      )
+      .execute!
+    render_board
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_board
-      @board = Board.find(params.expect(:id))
-    end
 
-    # Only allow a list of trusted parameters through.
-    def board_params
-      params.fetch(:board, {})
+  # Use callbacks to share common setup or constraints between actions.
+  def set_board
+    @board = Board.find(params.expect(:id))
+  end
+
+  # Only allow a list of trusted parameters through.
+  def board_params
+    params.require(:board).permit(:email, :name, :height, :width, :mine_count)
+  end
+
+  def render_board
+    respond_to do |format|
+      format.html { redirect_to @board, notice: 'Board was successfully created.' }
+      format.json { render :show, status: :created, location: @board }
     end
+  end
 end

@@ -1,11 +1,17 @@
+<%= stylesheet_link_tag "board/board" %>
+
+<%= render "navbar" %>
 <% content_for :title, "New board" %>
 
-<h1>New board</h1>
+<div class="board-index-container">
+  <div class="content">
+    <h1 class="title">New board</h1>
+    <%= render "form", board: @board %>
 
-<%= render "form", board: @board %>
+    <br>
 
-<br>
-
-<div>
-  <%= link_to "Back to boards", boards_path %>
+    <div>
+      <%= link_to "Back to board list", boards_path %>
+    </div>
+  </div>
 </div>

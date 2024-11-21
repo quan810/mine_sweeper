@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # == Schema Information
 #
 # Table name: boards
@@ -12,5 +14,9 @@
 #
 
 class Board < ApplicationRecord
-  has_many :mines
+  has_many :mines, dependent: :destroy
+
+  validates :name, :email, presence: true
+  validates :height, numericality: { greater_than: 0 }
+  validates :width, numericality: { greater_than: 0 }
 end

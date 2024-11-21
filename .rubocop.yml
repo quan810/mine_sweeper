@@ -11,9 +11,15 @@ AllCops:
     - 'storage/**/*'
     - 'bin/**/*'
     - 'db/**/*'
+    - 'spec/**/*'
     - 'config.ru'
+    - 'Gemfile'
   TargetRubyVersion: 3.2
   SuggestExtensions: false
 
 Style/Documentation:
+  Enabled: false
+Rails/I18nLocaleTexts:
+  Enabled: false
+Metrics/BlockLength:
   Enabled: false

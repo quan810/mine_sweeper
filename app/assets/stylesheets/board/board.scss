@@ -1,0 +1,125 @@
+.board-index-container {
+  height: 100lvh;
+  width: 100lvw;
+  display: flex;
+  .content {
+    width: 850px;
+    height: 100%;
+    margin: 15px auto;
+    padding: 15px 25px;
+    border-width: 1px;
+    border-style: none solid;
+    border-color: #ccc;
+    display: flex;
+    flex-direction: column;
+    .title {
+      margin: 15px auto;
+    }
+    .boards {
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+      .board {
+        color: black;
+        padding: 15px;
+        display: flex;
+        justify-content: space-between;
+        border: solid;
+        border-width: 1px;
+        border-radius: 10px;
+      }
+    }
+  }
+}
+
+.board-show-container {
+  height: 100lvh;
+  width: 100lvw;
+  display: flex;
+  .content {
+    width: 850px;
+    height: 100%;
+    margin: 15px auto;
+    padding: 15px 25px;
+    border-width: 1px;
+    border-style: none solid;
+    border-color: #ccc;
+    display: flex;
+    flex-direction: column;
+    .title {
+      margin: 15px auto;
+    }
+    .info {
+      display: flex;
+      justify-content: space-between;
+    }
+    .board {
+    }
+  }
+}
+
+.nav-container {
+  height: 72px;
+  width: 100lvw;
+  padding: 0px 40px;
+  background: #6FB3B8;
+  display: flex;
+  justify-content: space-between;
+  font-weight: bold;
+  .title {
+    color: #F6F6F2;
+    font-size: 20px;
+    margin: auto 5px;
+  }
+  .exit-form {
+    display: flex;
+    .exit {
+      border: none;
+      border-radius: 20px;
+      background: #F6F6F2;
+      color: #6FB3B8;
+      font-size: 20px;
+      margin: auto 5px;
+      padding: 0px 20px;
+      &:hover {
+        background: #C2EDCE;
+        cursor: pointer;
+      }
+    }
+  }
+}
+
+.board-form {
+  .form-control {
+    display: flex;
+    border: solid;
+    border-width: 1px;
+    border-radius: 25px;
+    flex-direction: column;
+    padding: 25px;
+    gap: 15px;
+    .form-group {
+      display: flex;
+      flex-diretion: row;
+      .label {
+        width: 88px;
+      }
+      .input {
+        flex: 1;
+      }
+    }
+    .submit {
+      border: none;
+      border-radius: 15px;
+      padding: 5px 0px;
+      background-color: #6FB3B8;
+      color: #F6F6F2;
+      font-weight: bold;
+      &:hover {
+        background: #C2EDCE;
+        color: #6FB3B8;
+        cursor: pointer;
+      }
+    }
+  }
+}

@@ -1,0 +1,8 @@
+<%= stylesheet_link_tag "board/board" %>
+
+<nav class="nav-container">
+  <div class="title">Welcome <%= session[:email] %></div>
+  <%= form_with url: exit_path, class: "exit-form" do |form| %>
+    <%= form.submit "Log out", class: "exit" %>
+  <% end %>
+</nav>

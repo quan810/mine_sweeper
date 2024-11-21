@@ -1,16 +1,32 @@
+<%= stylesheet_link_tag "board/board" %>
+
+<%= render "navbar" %>
 <p style="color: green"><%= notice %></p>
 
 <% content_for :title, "Boards" %>
 
-<h1>Boards</h1>
+<div class="board-index-container">
+  <div class="content">
+    <h1 class="title">Created board</h1>
 
-<div id="boards">
-  <% @boards.each do |board| %>
-    <%= render board %>
-    <p>
-      <%= link_to "Show this board", board %>
-    </p>
-  <% end %>
+    <div class="boards">
+      <% @boards.each do |board| %>
+        <%= link_to board, class: "board" do %>
+          <h1 class="name">
+            <%= board.name %>
+          </h1>
+          <div class="info">
+            <div class="email">
+              <%= "By #{board.email}" %>
+            </div>
+            <div class="created_at">
+              <%= "Created at #{board.created_at}" %>
+            </div>
+          </div>
+        <% end %>
+      <% end %>
+    </div>
+
+    <%= link_to "New board", new_board_path %>
+  </div>
 </div>
-
-<%= link_to "New board", new_board_path %>
