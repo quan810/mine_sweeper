@@ -7,7 +7,7 @@ class BoardCreateService
     @width = width.to_i
     @email = email
     @mine_count = mine_count.to_i
-    return unless @mine_count > @height * @width
+    return if @mine_count.in?(0..@height * @width)
 
     raise ActionController::BadRequest, 'Mines count must be less than available cell in board'
   end
